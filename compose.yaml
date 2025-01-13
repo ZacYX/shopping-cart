@@ -1,0 +1,34 @@
+services:
+  backend-shopping:
+    # image: visit-0.0.1
+    container_name: tasp
+    build:
+      context: .
+    ports:
+      - "8082:8082"
+    environment:
+      - SERVER_PORT=8082
+      # SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/your_database
+      # SPRING_DATASOURCE_USERNAME: your_user
+      # SPRING_DATASOURCE_PASSWORD: your_password
+    networks:
+      - docker-network
+    secrets:
+      - db_url
+      - db_user
+      - db_password
+    # entrypoint: ["/usr/local/bin/docker-entrypoint.sh"]
+    # command: ["java", "-jar", "app.jar"]
+    # command: "--spring.profiles.active=dev"
+
+networks:
+  docker-network:
+    external: true
+
+secrets:
+  db_url: 
+    file: ./secret/database_url.txt
+  db_user:
+    file: ./secret/database_user.txt
+  db_password:
+    file: ./secret/database_password.txt
