@@ -8,9 +8,9 @@ import com.goxmore.shoppingcart.model.CartItem;
 public interface CartService {
   public List<Cart> getAllCarts();
 
-  public Cart createCart(Long userId);
+  public Cart createCart(String userId);
 
-  public Cart getCartByUserId(Long userId);
+  public Cart getCartByUserId(String userId);
 
   public Cart getCartById(Long cartId);
 

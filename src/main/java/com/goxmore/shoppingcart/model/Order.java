@@ -33,7 +33,7 @@ public class Order {
   private Long id;
 
   @Column(name = "user_id")
-  private Long userId;
+  private String userId;
 
   @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonManagedReference
@@ -60,12 +60,12 @@ public class Order {
   public Order() {
   }
 
-  public Order(Long userId, String shippingAddress) {
+  public Order(String userId, String shippingAddress) {
     this.userId = userId;
     this.shippingAddress = shippingAddress;
   }
 
-  public Order(Long userId, List<OrderItem> items, OrderStatus status,
+  public Order(String userId, List<OrderItem> items, OrderStatus status,
       BigDecimal totalAmount, String shippingAddress) {
     this.userId = userId;
     this.items = items;
@@ -82,11 +82,11 @@ public class Order {
     this.id = id;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 

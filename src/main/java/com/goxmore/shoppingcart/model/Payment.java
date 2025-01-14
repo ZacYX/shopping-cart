@@ -27,7 +27,7 @@ public class Payment {
   private Long id;
 
   @Column(name = "user_id", nullable = false)
-  private Long userId;
+  private String userId;
 
   @ManyToOne
   @JoinColumn(name = "order_id", nullable = false)
@@ -57,7 +57,7 @@ public class Payment {
   public Payment() {
   }
 
-  public Payment(Long id, Long userId, Order order, LocalDateTime createdAt, LocalDateTime paymentDate,
+  public Payment(Long id, String userId, Order order, LocalDateTime createdAt, LocalDateTime paymentDate,
       PaymentMethod paymentMethod, Long transactionId, BigDecimal amount, PaymentStatus paymentStatus) {
     this.id = id;
     this.userId = userId;
@@ -78,11 +78,11 @@ public class Payment {
     this.id = id;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 

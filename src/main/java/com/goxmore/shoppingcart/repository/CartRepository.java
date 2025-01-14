@@ -9,5 +9,5 @@ import com.goxmore.shoppingcart.model.Cart;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Long> {
-  public Optional<Cart> findByUserId(Long userId);
+  public Optional<Cart> findByUserId(String userId);
 }

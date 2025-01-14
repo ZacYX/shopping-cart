@@ -30,7 +30,7 @@ public class Cart {
   private Long id;
 
   @Column(name = "user_id", nullable = false, unique = true)
-  private Long userId;
+  private String userId;
 
   @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
   // @JsonIgnore
@@ -48,7 +48,7 @@ public class Cart {
   public Cart() {
   }
 
-  public Cart(Long id, Long userId, List<CartItem> items, LocalDateTime createdAt, LocalDateTime updatedAt) {
+  public Cart(Long id, String userId, List<CartItem> items, LocalDateTime createdAt, LocalDateTime updatedAt) {
     this.id = id;
     this.userId = userId;
     this.items = items;
@@ -64,11 +64,11 @@ public class Cart {
     this.id = id;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
